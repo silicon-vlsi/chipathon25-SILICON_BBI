@@ -23,7 +23,7 @@ Mentor Portal for all of the participants from Silicon University
     - [Magic cheaetsheet](https://github.com/iic-jku/osic-multitool/blob/main/magic-cheatsheet/magic_cheatsheet.pdf) by Harald Pretl.
 
 - **TOOL INSTALLATION**
-  - **Quick-Start Guide for Windows** ([Video](https://zoom.us/rec/share/2X64v0TeVyJ7r58eM3nVUMV6kS7so3R_wbYEIQ45YWP5OUWV2KcWRm06dhdYJbr8.5pAgXEfrLrut6So9?pwd=6q%q#92h))
+  - **Quick-Start Guide for Windows** ([Video](https://zoom.us/rec/share/ahAF2sZ06EhY9c5Euyu2XA0EWwzEurNndqUKoftl7LWP5kEYUlztXJquwv_rsXs5.ZmtQttKvS1RvCqQ5?startTime=1750921181000)) Passcode: 6q%q#92h
     - Assuming **WSL is installed**.
     - Download and install **Docker Desktop**. Create a free user and login to the _Dashboard_
     - 
