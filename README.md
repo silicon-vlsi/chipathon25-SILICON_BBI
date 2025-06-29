@@ -23,7 +23,16 @@ Mentor Portal for all of the participants from Silicon University
     - [Magic cheaetsheet](https://github.com/iic-jku/osic-multitool/blob/main/magic-cheatsheet/magic_cheatsheet.pdf) by Harald Pretl.
 
 - **TOOL INSTALLATION**
-  - **Quick-Start Guide for Windows** ([Video](https://zoom.us/rec/share/ahAF2sZ06EhY9c5Euyu2XA0EWwzEurNndqUKoftl7LWP5kEYUlztXJquwv_rsXs5.ZmtQttKvS1RvCqQ5?startTime=1750921181000)) Passcode: 6q%q#92h
+  - **Quick-Start Guide for Windows** ([Video](https://zoom.us/rec/share/ahAF2sZ06EhY9c5Euyu2XA0EWwzEurNndqUKoftl7LWP5kEYUlztXJquwv_rsXs5.ZmtQttKvS1RvCqQ5?startTime=1750921181000))
     - Assuming **WSL is installed**.
     - Download and install **Docker Desktop**. Create a free user and login to the _Dashboard_
-    - 
+      - During install the select: ✅ Use WSL 2 instead of Hyper-V (recommneded)
+    - Copy the `start_chipathon_vnc.bat` from the [Chipathon /resource](https://github.com/sscs-ose/sscs-chipathon-2025/blob/main/resources/IIC-OSIC-TOOLS/start_chipathon_vnc.bat) page to a accessible location eg. `C:\Users\<username>\Downloads`
+    - Start the a Powershell in admin mode: `Windows-> Right-Click -> Windows Powershell (admin)`
+    - Change directory to the _Downloads_ folder and execute the _batch file_ `.\start_chipathon_vnc.bat`
+      - **IMPORTANT NOTE**: This downloads a >2GB docker image so make sure you have a good internet connection and you are plugged in.
+    - After installation you can start the docker container from the _Dashboard_ or from the _Powershell_
+    - This will start a VNC Server and you can login using a VNC client like Tiger VNC (If you haven't download and install from the Web)
+      - In the connect window enter `localhost:5901`
+      - When asked for passwprd enter `abc123`
+    - Now you can access the Linux desktop with all the EDA tools available. 
