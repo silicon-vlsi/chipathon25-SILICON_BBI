@@ -23,8 +23,8 @@ Mentor Portal for all of the participants from Silicon University
     - [Drawing an inverter](https://docs.google.com/document/d/1hSLKsz9xcEJgAMmYYer5cDwvPqas9_JGRUAgEORx1Yw/edit#heading=h.j6gtadx04fb6): A google doc by Ryan Ridley, Teo Ene, and James E. Stine. Very step-by-step guide for SKY-130nm process.
     - [Magic Video Tutorial](https://youtu.be/XvBpqKwzrFY?si=AyL0Wr3V4gb954yx) by Tim Edwards. (~1hr 30min) 
     - [Magic cheaetsheet](https://github.com/iic-jku/osic-multitool/blob/main/magic-cheatsheet/magic_cheatsheet.pdf) by Harald Pretl.
-
-- **TOOL INSTALLATION**
+      
+- **VIDEOS**
   - July 1 ([Video (30-min)](https://zoom.us/rec/share/gD_Pr28JdMq8DdJxe6bWLcMAMnFSaTuuNu0P7W9OATsU_7tqP0cgvbKwSJzCncpf.2hM4n4cL8CEQeh9i?startTime=1751357089000)) : This video demonstrates on how to access the **OSU standard cell library** and simulate it.
     - 0:00 hr : Reviewing the **GF180 Process**
     - 0:06 hr : Cloning the **OSU Standard Cell Library**
@@ -36,7 +36,9 @@ Mentor Portal for all of the participants from Silicon University
     - 0:50 hr : Questions/Answers and Docker installation.
     - 1:00 hr : Connecting through **Tiger VNC** viewer and checking the **EDA tools (xschem, ngspice)**
     - 1:08 hr : Cloning the **GitHub template**
-  - June 26 ([Video (9-min)](https://zoom.us/rec/share/ahAF2sZ06EhY9c5Euyu2XA0EWwzEurNndqUKoftl7LWP5kEYUlztXJquwv_rsXs5.ZmtQttKvS1RvCqQ5?startTime=1750921181000)): This is a quick video demonstrating the **docker download of the IIC OSIC tools** and shows how to invoke the 3 EDA tools, **xschem, ngspice** and **Magic** 
+  - June 26 ([Video (9-min)](https://zoom.us/rec/share/ahAF2sZ06EhY9c5Euyu2XA0EWwzEurNndqUKoftl7LWP5kEYUlztXJquwv_rsXs5.ZmtQttKvS1RvCqQ5?startTime=1750921181000)): This is a quick video demonstrating the **docker download of the IIC OSIC tools** and shows how to invoke the 3 EDA tools, **xschem, ngspice** and **Magic**
+    
+- **TOOL INSTALLATION**
   - **QUICK-START GUIDE for INSTALLING IIC OSIC Tools in Windows** 
     - Assuming **WSL is installed**.
     - Download and install **Docker Desktop**. Create a free user and login to the _Dashboard_
