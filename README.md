@@ -14,6 +14,7 @@ Mentor Portal for all of the participants from Silicon University
 - **STANDARD CELL LINKS**
   - [Global Foundry 7-track Standard Cells](https://github.com/fossi-foundation//globalfoundries-pdk-libs-gf180mcu_fd_sc_mcu7t5v0)
   - [OSU 3.3V GF Standard Cell Lib](https://github.com/stineje/globalfoundries-pdk-libs-gf180mcu_osu_sc): This is the library we are going to augment.
+  - [PDF Slides: Introduction Standard Cells](/docs/Standard%20Cell%20Design.pdf)
 - **TUTORIALS/EXAMPLES/ETC**
   -  Tutorial using **Xschem** and **ngspice** with gf180mcu ([part-1](https://youtu.be/MdywD87-DVg) | [part-2](https://youtu.be/DLvZSsLAbho) | [part-3](https://youtu.be/nBnR8Nm_B_I) )
   -  [End-to-End tutorial using Sky130](docs/Open-Source%20Analog%20Design%20Flow%20Using%20Efabless%20and%20the%20SkyWater%20130nm%20PDK.pdf)
@@ -24,7 +25,19 @@ Mentor Portal for all of the participants from Silicon University
     - [Magic cheaetsheet](https://github.com/iic-jku/osic-multitool/blob/main/magic-cheatsheet/magic_cheatsheet.pdf) by Harald Pretl.
 
 - **TOOL INSTALLATION**
-  - **Quick-Start Guide for Windows** ([Video](https://zoom.us/rec/share/ahAF2sZ06EhY9c5Euyu2XA0EWwzEurNndqUKoftl7LWP5kEYUlztXJquwv_rsXs5.ZmtQttKvS1RvCqQ5?startTime=1750921181000))
+  - July 1 ([Video (30-min)](https://zoom.us/rec/share/gD_Pr28JdMq8DdJxe6bWLcMAMnFSaTuuNu0P7W9OATsU_7tqP0cgvbKwSJzCncpf.2hM4n4cL8CEQeh9i?startTime=1751357089000)) : This video demonstrates on how to access the **OSU standard cell library** and simulate it.
+    - 0:00 hr : Reviewing the **GF180 Process**
+    - 0:06 hr : Cloning the **OSU Standard Cell Library**
+    - 0:10 hr : **Reading** the standard cells in Xschem
+    - 0:14 hr : **Netlist and Simulate** the standard cell
+  - June 28 ([Video (1:20 hrs)](https://zoom.us/rec/share/-xiW0oX0nP_XeqhNSh_t0-FvApAVoizsZW12b1LI13385JtT9p6N9dHvI0dAm6AU.1b6_Wf5oKM-hB3rd?startTime=1751106558000)) Weekly Meeting
+    - 0:00 hr : Introduction to VLSI Design flow.
+    - 0:25 hr : Introduction Standard Cells [[PDF of Slides](/docs/Standard%20Cell%20Design.pdf)]
+    - 0:50 hr : Questions/Answers and Docker installation.
+    - 1:00 hr : Connecting through **Tiger VNC** viewer and checking the **EDA tools (xschem, ngspice)**
+    - 1:08 hr : Cloning the **GitHub template**
+  - June 26 ([Video (9-min)](https://zoom.us/rec/share/ahAF2sZ06EhY9c5Euyu2XA0EWwzEurNndqUKoftl7LWP5kEYUlztXJquwv_rsXs5.ZmtQttKvS1RvCqQ5?startTime=1750921181000)): This is a quick video demonstrating the **docker download of the IIC OSIC tools** and shows how to invoke the 3 EDA tools, **xschem, ngspice** and **Magic** 
+  - **QUICK-START GUIDE for INSTALLING IIC OSIC Tools in Windows** 
     - Assuming **WSL is installed**.
     - Download and install **Docker Desktop**. Create a free user and login to the _Dashboard_
       - During install the select: ✅ Use WSL 2 instead of Hyper-V (recommneded)
