@@ -2,6 +2,7 @@
  
 Mentor Portal for all of the participants from Silicon University
 
+
 # Resources
 
 - [Main SSCS Chipathon 2025 GitHub Page](https://github.com/sscs-ose/sscs-chipathon-2025)
