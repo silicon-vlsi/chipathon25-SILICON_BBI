@@ -30,13 +30,13 @@ Mentor Portal for all of the participants from Silicon University
     - 0:06 hr : Cloning the **OSU Standard Cell Library**
     - 0:10 hr : **Reading** the standard cells in Xschem
     - 0:14 hr : **Netlist and Simulate** the standard cell
-  - June 28 ([Video (1:20 hrs)](https://zoom.us/rec/share/-xiW0oX0nP_XeqhNSh_t0-FvApAVoizsZW12b1LI13385JtT9p6N9dHvI0dAm6AU.1b6_Wf5oKM-hB3rd?startTime=1751106558000)) Weekly Meeting
+  - June 28 ([Video (1:20 hrs)](https://zoom.us/rec/share/xjX9IamReQsPZ1U40AkjokxDDd7zHhl_LZWi4nH8png014gCtHxPwRhp4EJAwLoS.CjTjLz1BgSH1s8gk)) Weekly Meeting
     - 0:00 hr : Introduction to VLSI Design flow.
     - 0:25 hr : Introduction Standard Cells [[PDF of Slides](/docs/Standard%20Cell%20Design.pdf)]
     - 0:50 hr : Questions/Answers and Docker installation.
     - 1:00 hr : Connecting through **Tiger VNC** viewer and checking the **EDA tools (xschem, ngspice)**
     - 1:08 hr : Cloning the **GitHub template**
-  - June 26 ([Video (9-min)](https://zoom.us/rec/share/ahAF2sZ06EhY9c5Euyu2XA0EWwzEurNndqUKoftl7LWP5kEYUlztXJquwv_rsXs5.ZmtQttKvS1RvCqQ5?startTime=1750921181000)): This is a quick video demonstrating the **docker download of the IIC OSIC tools** and shows how to invoke the 3 EDA tools, **xschem, ngspice** and **Magic**
+  - June 26 ([Video (9-min)](https://zoom.us/rec/share/DI3iGQpEiO0sQCuq--XjCDxQMElF9J_zpmhLO5JPsenvdU8ih3zvHZqblLavywYi.eWBLfY78VkDgHfb8)): This is a quick video demonstrating the **docker download of the IIC OSIC tools** and shows how to invoke the 3 EDA tools, **xschem, ngspice** and **Magic**
     
 - **TOOL INSTALLATION**
   - **QUICK-START GUIDE for INSTALLING IIC OSIC Tools in Windows** 
