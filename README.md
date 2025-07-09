@@ -7,8 +7,10 @@ Mentor Portal for all of the participants from Silicon University
 
 - [Main SSCS Chipathon 2025 GitHub Page](https://github.com/sscs-ose/sscs-chipathon-2025)
   - [schedule/](https://github.com/sscs-ose/sscs-chipathon-2025/blob/main/schedule): event schedule, important dates, **Report Submit links**, Meeting Videos
+  - **Links to Selected Weekly Meeting Slides**
+    - [June 27 Meeting Slides](https://docs.google.com/presentation/d/e/2PACX-1vQdbPDtoySuBoXIKmtaYK0QQP0KcUmgab9Mp3-7UxugTcsv5Y2R-2Ct8uTjzvbFuw/pub?slide=id.g36a22847a52_3_0): **Slide 53** has project goals.
   - [resources/Digital_Building_Blocks](https://github.com/sscs-ose/sscs-chipathon-2025/blob/main/resources/Digital_Building_Blocks)
-    - [Standard Cell Overview](https://github.com/sscs-ose/sscs-chipathon-2025/blob/main/resources/Digital_Building_Blocks/files/Chipathon_digital_track_overview.pdf)
+    - [Standard Cell Overview](https://github.com/sscs-ose/sscs-chipathon-2025/blob/main/resources/Digital_Building_Blocks/files/Chipathon_digital_track_overview.pdf): Tim Edward, et.al.
     - [GF180 Analog Design Workflow GitHub Repo Template](https://github.com/Jianxun/iic-osic-tools-project-template): Use this template to create your _project repository_ in your GitHub account. Follow the the naming convention: **_chipathon25-SILICON_BBI[1/2]-<username>_** [1/2] -> depending on your group, use 1 or 2. **NOTE** This template can be used to create the whole docker image as well.
 
 - **STANDARD CELL LINKS**
