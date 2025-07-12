@@ -31,6 +31,9 @@ Mentor Portal for all of the participants from Silicon University
     - [Magic cheaetsheet](https://github.com/iic-jku/osic-multitool/blob/main/magic-cheatsheet/magic_cheatsheet.pdf) by Harald Pretl.
       
 - **VIDEOS**
+  - July 12 ([Video (1 hr)](https://zoom.us/rec/share/dV2a7f0OiC-pDPC1i0mP9-_u6QtGHIcBtFH_UYWn8SxJCGKBjiNZdG2z_ecZMhBd.ovn2cfo-f_DAk2kr)) Weekly Meeting
+    - Review of the project proposal with assigned standard cells for each members.
+    - 0:40 hr : **Assignment** Copy the 2-input NAND gate with 1X drive strength from the OSU 9-Track library and increase drive strength to 2X.
   - July 1 ([Video (30-min)](https://zoom.us/rec/share/gD_Pr28JdMq8DdJxe6bWLcMAMnFSaTuuNu0P7W9OATsU_7tqP0cgvbKwSJzCncpf.2hM4n4cL8CEQeh9i?startTime=1751357089000)) : This video demonstrates on how to access the **OSU standard cell library** and simulate it.
     - 0:00 hr : Reviewing the **GF180 Process**
     - 0:06 hr : Cloning the **OSU Standard Cell Library**
