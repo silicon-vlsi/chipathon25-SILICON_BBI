@@ -2,7 +2,9 @@
  
 Mentor Portal for all of the participants from Silicon University
 
-
+- [Zoom Link for Chipathon Meeting every **Friday at 8:30PM IST**](https://us06web.zoom.us/j/83060635740?pwd=UbIWLnu8C7nyLTZE7JglzRgbwSa23r.1)
+- [Zoom Link for SILICON_BBI team meeting every **Saturday at 3:30PM**](https://zoom.us/j/92589037939?pwd=bmQ0pNzFlGLlLLzM2sb3oM5rxdptgh.1)
+  
 # Resources
 
 - [Main SSCS Chipathon 2025 GitHub Page](https://github.com/sscs-ose/sscs-chipathon-2025)
