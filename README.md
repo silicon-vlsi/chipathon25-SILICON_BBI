@@ -60,4 +60,8 @@ Mentor Portal for all of the participants from Silicon University
     - This will start a VNC Server and you can login using a VNC client like Tiger VNC (If you haven't download and install from the Web)
       - In the connect window enter `localhost:5901`
       - When asked for passwprd enter `abc123`
-    - Now you can access the Linux desktop with all the EDA tools available. 
+    - Now you can access the Linux desktop with all the EDA tools available.
+   - **TROUBLESHOOTING HELP**
+     - [Docker Environment Setup](https://docs.google.com/document/d/13r-pB7vhYnCb-n46CAAlqXrKSj99bQtmEeyoayEV3Ak/edit?tab=t.0) by gLayout team.
+     - https://github.com/sscs-ose/sscs-chipathon-2025/blob/main/resources/IIC-OSIC-TOOLS/README.md
+     - https://github.com/iic-jku/IIC-OSIC-TOOLS/blob/main/README.md
