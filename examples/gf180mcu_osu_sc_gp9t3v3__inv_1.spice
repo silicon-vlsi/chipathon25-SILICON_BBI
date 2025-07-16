@@ -1,0 +1,8 @@
+** sch_path: /foss/designs/gits/globalfoundries-pdk-libs-gf180mcu_osu_sc/gf180mcu_osu_sc_gp9t3v3/cells/inv/gf180mcu_osu_sc_gp9t3v3__inv_1.sch
+.subckt gf180mcu_osu_sc_gp9t3v3__inv_1 A Y
+*.PININFO A:I Y:O
+X0 Y A VDD VDD pfet_03v3 w=1.7u l=0.3u m=2
+X1 Y A GND GND nfet_03v3 w=0.85u l=0.3u m=2
+.ends
+.GLOBAL VDD
+.GLOBAL GND

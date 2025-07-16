@@ -1,0 +1,37 @@
+** sch_path: /foss/designs/work/xschem/TB_inv1.sch
+**.subckt TB_inv1
+**** begin user architecture code
+
+
+
+.INCLUDE gf180mcu_osu_sc_gp9t3v3__inv_1.spice
+
+** Netlist
+Xinv A Y gf180mcu_osu_sc_gp9t3v3__inv_1
+Cload	Y	GND	50f
+
+** Sources
+Vdc 	VDD	GND	1.8
+Vin	A	GND	0  PULSE(0 1.8 1n 1p 1p 5n 10n)
+
+** Rise/Fall 10-90%
+.MEASURE TRAN tr1090 TRIG v(Y) VAL='0.1*1.8' RISE=1 TARG v(Y) VAL='0.9*1.8' RISE=1
+.MEASURE TRAN tf9010 TRIG v(Y) VAL='0.9*1.8' FALL=1 TARG v(Y) VAL='0.1*1.8' FALL=1
+** Delay Rise Fall
+.MEASURE TRAN tdrise TRIG v(A)  VAL='0.5*1.8' RISE=1 TARG v(Y) VAL='0.5*1.8' RISE=1
+.MEASURE TRAN tdfall TRIG v(A)  VAL='0.5*1.8' FALL=1 TARG v(Y) VAL='0.5*1.8' FALL=1
+
+.control
+save all
+op
+tran 1p 20n
+.endc
+
+
+
+.include /foss/pdks/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+
+**** end user architecture code
+**.ends
+.end
