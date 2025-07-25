@@ -30,6 +30,7 @@ Mentor Portal for all of the participants from Silicon University
     - [Drawing an inverter](https://docs.google.com/document/d/1hSLKsz9xcEJgAMmYYer5cDwvPqas9_JGRUAgEORx1Yw/edit#heading=h.j6gtadx04fb6): A google doc by Ryan Ridley, Teo Ene, and James E. Stine. Very step-by-step guide for SKY-130nm process.
     - [Magic Video Tutorial](https://youtu.be/XvBpqKwzrFY?si=AyL0Wr3V4gb954yx) by Tim Edwards. (~1hr 30min) 
     - [Magic cheaetsheet](https://github.com/iic-jku/osic-multitool/blob/main/magic-cheatsheet/magic_cheatsheet.pdf) by Harald Pretl.
+  - [Pro Git](https://git-scm.com/book/en/v2): an excellent book by Scott Chacon and Ben Straub
       
 - **VIDEOS**
   - July 12 ([Video (1 hr)](https://zoom.us/rec/share/dV2a7f0OiC-pDPC1i0mP9-_u6QtGHIcBtFH_UYWn8SxJCGKBjiNZdG2z_ecZMhBd.ovn2cfo-f_DAk2kr)) Weekly Meeting
