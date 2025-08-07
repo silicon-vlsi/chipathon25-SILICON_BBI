@@ -11,7 +11,7 @@ Mentor Portal for all of the participants from Silicon University
   - [schedule/](https://github.com/sscs-ose/sscs-chipathon-2025/blob/main/schedule): event schedule, important dates, **Report Submit links**, Meeting Videos
     - [Slide Deck with Proposals](https://docs.google.com/presentation/d/1PPs22g3QAaJXZ76OtD4wRJLnIo7fuem2/edit?slide=id.g36d74ebfab8_0_407&pli=1#slide=id.g36d74ebfab8_0_407)
   - **Links to Selected Weekly Meeting Slides**
-    - [July 25 Meeting Slide](https://docs.google.com/presentation/d/e/2PACX-1vTtfVs852SBbCKkoSJAtBWOG5latVGxOtNTywOtoZdV6w201aavoyB5gkNclv711Q/pub): CharLib Demo and Tutorial by Peter (Sch/Database/**Project Tracking**)
+    - [July 25 Meeting Slide](https://docs.google.com/presentation/d/e/2PACX-1vTtfVs852SBbCKkoSJAtBWOG5latVGxOtNTywOtoZdV6w201aavoyB5gkNclv711Q/pub): **CharLib Demo** and Tutorial by Peter (Sch/Database/**Project Tracking**)
     - [June 27 Meeting SLides](https://docs.google.com/presentation/d/e/2PACX-1vQwOCDO72NBn09BWiQVFil2mFRwZ__72UmFIUbe2BdGgr498ldONym0g9bURT5FMA/pub?slide=id.g36b4f57c94d_2_37): **StdCell Ideas** in Tim's Slides. Introduction to **CharLib** by James Stine.
     - [June 20 Meeting Slides](https://docs.google.com/presentation/d/e/2PACX-1vQdbPDtoySuBoXIKmtaYK0QQP0KcUmgab9Mp3-7UxugTcsv5Y2R-2Ct8uTjzvbFuw/pub?slide=id.g36a22847a52_3_0): **Slide 53** has project goals.
   - [resources/Digital_Building_Blocks](https://github.com/sscs-ose/sscs-chipathon-2025/blob/main/resources/Digital_Building_Blocks)
@@ -20,6 +20,11 @@ Mentor Portal for all of the participants from Silicon University
 
 - **CHARACTERIZATION**
   - [CharLib GitHub Page](https://github.com/stineje/CharLib)
+    - [CharLib Documentation](https://stineje.github.io/CharLib/index.html)
+    - *Internal Test configs*:
+      - [Example GF180 YAML file](https://github.com/stineje/CharLib/blob/main/test/pdks/gf180/gf180.yml)
+      - [Example OSU 350 YAML file](https://github.com/stineje/CharLib/blob/main/test/pdks/osu350/osu350.yml)
+    - [Example gf180mcu_osu_sc_gp9t3v3 YAML FILE](https://github.com/stineje/globalfoundries-pdk-libs-gf180mcu_osu_sc/blob/main/gf180mcu_osu_sc_gp9t3v3/charlib.yml) I think this one used during Jul 25 demp by Marcus.
     
 - **STANDARD CELL LINKS**
   - [Global Foundry 5V 7-track Standard Cells](https://github.com/fossi-foundation//globalfoundries-pdk-libs-gf180mcu_fd_sc_mcu7t5v0)
