@@ -39,6 +39,7 @@ Mentor Portal for all of the participants from Silicon University
   -  [End-to-End tutorial using Sky130](docs/Open-Source%20Analog%20Design%20Flow%20Using%20Efabless%20and%20the%20SkyWater%20130nm%20PDK.pdf)
   - **Magic** Resources
     - **Videos**
+      - [10min speedrun of a inverter layout by Matt Venn](https://www.youtube.com/watch?v=IQ_DcWT_cbc)
       - [Tutorial: Analog Layout of an OpAmp](https://youtu.be/XvBpqKwzrFY?si=AyL0Wr3V4gb954yx) by Tim Edwards. (~1hr 30min)
       - [Magic Tutorial 1](https://www.youtube.com/watch?v=ORw5OaY33A4&t=9s) by Carsten Wulff
       - [Magic Tutorial 2](https://www.youtube.com/watch?v=NUahmUtY814) by Carsten Wulff
