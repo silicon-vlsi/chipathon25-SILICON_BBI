@@ -38,6 +38,8 @@ Mentor Portal for all of the participants from Silicon University
   -  Tutorial using **Xschem** and **ngspice** with gf180mcu ([part-1](https://youtu.be/MdywD87-DVg) | [part-2](https://youtu.be/DLvZSsLAbho) | [part-3](https://youtu.be/nBnR8Nm_B_I) )
   -  [End-to-End tutorial using Sky130](docs/Open-Source%20Analog%20Design%20Flow%20Using%20Efabless%20and%20the%20SkyWater%20130nm%20PDK.pdf)
   - **Magic** Resources
+    - [Magic](http://www.opencircuitdesign.com/magic/): The official site of Magic maintained by Tim Edwards. COntains a bunch of tutorials.
+      - [Magic User Guide from OPen Circuit](http://www.opencircuitdesign.com/magic/userguide.html)
     - **Videos**
       - [10min speedrun of a inverter layout by Matt Venn](https://www.youtube.com/watch?v=IQ_DcWT_cbc)
       - [Tutorial: Analog Layout of an OpAmp](https://youtu.be/XvBpqKwzrFY?si=AyL0Wr3V4gb954yx) by Tim Edwards. (~1hr 30min)
@@ -45,7 +47,6 @@ Mentor Portal for all of the participants from Silicon University
       - [Magic Tutorial 2](https://www.youtube.com/watch?v=NUahmUtY814) by Carsten Wulff
       - [Magic Tutorial 3](https://www.youtube.com/watch?v=OKWM1D0_fPI) by Carsten Wulff
     - [Analog Circuit Design Flow](https://analogicus.com/rply_ex0_sky130nm/tutorial) by Carsten Wulff
-    - [Magic](http://www.opencircuitdesign.com/magic/): The official site of Magic maintained by Tim Edwards. COntains a bunch of tutorials.
     - [Drawing an inverter](https://docs.google.com/document/d/1hSLKsz9xcEJgAMmYYer5cDwvPqas9_JGRUAgEORx1Yw/edit#heading=h.j6gtadx04fb6): A google doc by Ryan Ridley, Teo Ene, and James E. Stine. Very step-by-step guide for SKY-130nm process.
     - [Magic cheaetsheet](https://github.com/iic-jku/osic-multitool/blob/main/magic-cheatsheet/magic_cheatsheet.pdf) by Harald Pretl.
   - [Pro Git](https://git-scm.com/book/en/v2): an excellent book by Scott Chacon and Ben Straub
