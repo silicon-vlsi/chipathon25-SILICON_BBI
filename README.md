@@ -27,6 +27,8 @@ Mentor Portal for all of the participants from Silicon University
       - [Example GF180 YAML file](https://github.com/stineje/CharLib/blob/main/test/pdks/gf180/gf180.yml)
       - [Example OSU 350 YAML file](https://github.com/stineje/CharLib/blob/main/test/pdks/osu350/osu350.yml)
     - [Example gf180mcu_osu_sc_gp9t3v3 YAML FILE](https://github.com/stineje/globalfoundries-pdk-libs-gf180mcu_osu_sc/blob/main/gf180mcu_osu_sc_gp9t3v3/charlib.yml) I think this one used during Jul 25 demp by Marcus.
+    - [CharLib Setup Usage — IIC‑OSIC‑Tools Docker](https://github.com/azfaray/chipathon_chipabros/blob/main/resource/charlib_docker_setup.md) Step-by-Step guide from ChipaBros
+    - [CharLib Installation issue in stand alone and docker](https://github.com/stineje/CharLib/issues/71#issuecomment-3140300378) 
     
 - **STANDARD CELL LINKS**
   - [Global Foundry 5V 7-track Standard Cells](https://github.com/fossi-foundation//globalfoundries-pdk-libs-gf180mcu_fd_sc_mcu7t5v0)
