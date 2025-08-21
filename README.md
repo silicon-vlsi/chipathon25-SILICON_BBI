@@ -43,6 +43,7 @@ Mentor Portal for all of the participants from Silicon University
     - [Magic](http://www.opencircuitdesign.com/magic/): The official site of Magic maintained by Tim Edwards. COntains a bunch of tutorials.
       - [Magic User Guide from OPen Circuit](http://www.opencircuitdesign.com/magic/userguide.html)
     - **Videos**
+      - [10min video](https://zoom.us/rec/share/g_jwyAp-6EIXa93ZwvJaVDFTPg3741XoCffbcdyfzx9xLebc9ZW8GHFPcwUsj_s2.CcqKC_tKK8fxfgzn) for begineers going through some of the key features of Magic. 
       - [10min speedrun of a inverter layout by Matt Venn](https://www.youtube.com/watch?v=IQ_DcWT_cbc)
       - [Tutorial: Analog Layout of an OpAmp](https://youtu.be/XvBpqKwzrFY?si=AyL0Wr3V4gb954yx) by Tim Edwards. (~1hr 30min)
       - [Magic Tutorial 1](https://www.youtube.com/watch?v=ORw5OaY33A4&t=9s) by Carsten Wulff
