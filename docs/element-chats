@@ -1,0 +1,153 @@
+(Jul 18,2025) Message by peterkinget  : [MOSbius Track] I have created symbols for some of the 5V std cells that are included in the gf180 pdk so that we can create 'analog' schematics using the cells. Hopefully we can then win time by reusing the layouts of these cells for the digital circuits we need in e.g. the switch matrix. I put together a repo with my current symbols + test benches + brief README.md -- use with caution, this is work in progress. https://github.com/peterkinget/gf180mcu_fd_sc_mcu9t5v0_symbols/tree/main Let me know if you would like to collaborate on this. I can add you to the repo or you can fork and submit pull requests. When adding this repo into your project design repo, make sure to add it as a submodule. Your favorite GPT can probably tell you how to do that.  GitHub - peterkinget/gf180mcu_fd_sc_mcu9t5v0_sy 
+  
+(Jul 18,2025) Message by sroutk : [Digital Track StdCell Dev] @room Created a Google sheet to track group sign-ups for standard cells, with the aim of filling the gaps for the OSU 3v3 library compared to the GF180MCU5V library. I reviewed issues and updated the ChipathonGroups sheet, defaulting to 1X/9T when the the proposals lacked drive strength and track details. After reviewing the matrix, we adjusted cell assignments for our teams SILICON_BBI1/2 to incorporate new simple std cells.
+[Digital Track StdCell Dev] teams: please check for any omissions or necessary updates. https://docs.google.com/spreadsheets/d/1Rdcb5LyBLKw2DYfB2EOK9vUjeUotW02IQyCLn2DButc/edit?usp=sharing
+OSU-3v3-StdCell-vs-GF5v-stdcell
+
+ (Jul 19,2025) Message by sroutk : [Digital Track Std Cell Dev] Tim I have few questions regarding the level shifter:
+Are the low/high voltage domains 3.3V and 5V ?
+The 12T OSU stdcell library lshiftup/lshiftdown are using only _03v3 models. But if the high voltage is 5V, wouldn't that damage the devices?
+What high voltage devices should we use for the level-shifters _05v0 or _06v0 ?    
+Thank You 
+ (Jul 19,2025) Replied by Tim : sroutk (1) "Domains" are however you set up regions of a chip to operate at different voltages. But yes, there are two transistor types, thin oxide gate and thick oxide gate, which operate at 3.3V and 5.0V, respectively.
+(2) I have not looked at their level shifter cells, but yes, normally a level shifter will be part of the high voltage standard cell set because it will need to use the thick oxide devices.
+(3) 5.0V and 6.0V are the same device. I have answered a similar question elsewhere, maybe the gf180mcu channel? Anyway, there is only one set of SPICE models and those are labeled as "6V". However, the smallest length devices are only rated up to 5V use. Since the standard cells use the minimum-length devices, the whole standard cell library is rated for 5V. But it still uses the "6V" models. I don't really like the way GF handled that in their PDK, and it wasn't documented well.
+
+ (Jul 19,2025) Replied by Tim :  (Specifically, the pfet_06v0 device is only rated to operate at 5V for lengths less than 0.55um, and the nfet_06v0 device is only rated to operate at 5V for lengths less than 0.7um.) sroutk :  I checked the OSU 12T standard cells, and yes, you are right that the level shifters are incorrect and will fail as designed.
+
+ (Jul 19,2025) Replied by sroutk : Thank you Tim for the clarification.
+I will design the level shifter (LS) using _06v0 devices with lengths of 0.55um/0.7um so that the LS can be used for high voltage up to 6V . Once the 9T cells are done, it should be easy to port the layout to 12T
+
+(In thread) Replied by Tim : I don't see any particular need to support 6V. I think that overall it is easier to make the level shifters match the specs of the GF 5V standard cell library, not the OSU 3.3V standard cell library. I do not know if the 5V transistors can be added to the 3.3V cell profile and maintain compatibility with all other cells abutting the level shifter. But maybe it can? If you want to "play it safe", then creating new cells for the GF library is a perfectly good project. I did not mention it because the GF library is pretty full-featured already, but it does lack level shifters. 
+
+ (In thread) Replied by sroutk :  Yeah, good point re. 5V fets in the 3.3V layout profile. Maybe it will work by breaking down the widths till it fits. Needs to be seen when I get to the layout. Else, make a separate cell by itself.  Re. abutting, you're right that the abutting will be a problem since the VDD rail is broken but typically these are put at the edge of the P&R block, so break in the VDD rail is ok, I think  
+
+(Jul 23,2025) Message by Adrian Pratama : Hi, I want to ask a question, what are psubdif and nsubdif layer used for? When we saw the 9t 3v3 OSU's layout, there are some psubdif and nsubdif layer in the vss and vdd respectively. What is the difference between those and ndiff and pdiff? Is it mandatory to place those layers (nsubdif and psubdif on the vdd and vss power rail)?
+
+ (In thread) Replied by d.m.bailey : Adrian Pratama You're talking about the magic layout, right? Magic stores data in planes where only one shape can exist at any point on the plane. The psubdiff and nsubdiff layers are actually combined to the same diffusion mask during tapeout or mask production. The implants are different though. magic uses these two layers to pass connectivity to the respective substrate or nwell. 
+
+Replied by sroutk : My guess is that they are probably the same mask but separate layers to help in verification e.g. latchup, etc. I would stick to them unless there is a good reason not to .
+(Jul 29,2025) Message by sroutk :  Hello Tim Added a comment on our repo issue https://github.com/sscs-ose/sscs-chipathon-2025/issues/50 pointing to the location of the level-shifter-up folder: https://github.com/silicon-vlsi/chipathon25-SILICON_BBI-sroutk/tree/main/designs/libs/core_digital/gf180mcu_osu_sc_gp9t3v3/cells/lshifup with design files and some brief documentation (README.md) Please take a look when you get a chance to make sure there is no major errors. As pointed out in the comment, the static current of these cells will be higher. Hopefully that's not an issue. Once we run CharLib, we will know the worstcase value.
+
+(In thread) Replied by Tim : (1) I don't think it makes sense to do a level shifter in the OSU standard cell set; that's a layout consideration, not a schematic consideration. Matching the cell to gf180mcu_fd_sc_mcu7t5v0 or gf180mcu_fd_sc_mcu9t5v0 will be more straightforward, and those libraries need level shifters anyway (compare to sky130, where the level shifters are in sky130_fd_sc_hvl, not sky130_fd_sc_hd).
+(2) Schematic looks good, but as Peter Kinget said in the last meeting, don't use global power and ground in your cell schematics because global nets aren't physical and don't exist on the chip. Global power and ground is fine for the testbench schematic .
+
+(In thread) Replied by sroutk : (1) A general question about the level-shifters (LS) in std-cell library: do the synth/P&R tools use the LS ? My understanding was that the synthesis is typically done for one voltage domain. And if the synth uses the LS, how does it take care of the break in the supply rails.  (2) We put the global VDD/GND because the current OSU cells have it that way. And I just checked the GF_5V stdcell lib and it actually has the VDD/GND/VNW/VPW as pins to the cell! So the question now is: Do we also bring the NW/PW connections out as pins ?  And the question is for all cells including the LS 
+
+ (In thread) Replied by Tim : The answers to those questions are a bit involved. . . (1) I expect there are P&R tools that can handle level shifters; it's mostly a matter of whether the tools understand multiple voltage domains. I don't think OpenROAD can handle them. On the other hand, if the cell fits in with the other cells in the library, then it can always be instantiated directly in verilog. The power supply likely would have to be manually routed. 
+For the sky130 HVL library, the cell is a double-row cell (which is also a problem for OpenROAD), and the high voltage power supply fits with all the other HVL library cells, and the low-voltage power supply just looks like an over-sized pin. (2) If the OSU cells have global VDD/GND in the schematics, then they should be fixed. That's just bad practice. There are two ways to make standard cells: (A) Put the well and substrate taps inside the cell, or (B) put the well and substrate taps in their own "tap" cell and then make the placement tool add the tap cell at regular intervals throughout the layout so as not to violate latchup DRC rules. For (A), there is only VDD and GND, which is how the OSU standard cells are done. For (B), the well and substrate are not connected to the power rails, so they become extra pins. The purpose of (B) is that it allows the cells to be made a bit smaller. In my experience, this doesn't really gain any significant area savings .
+(In thread) Replied by sroutk :  Thanks  Tim for the clarification.
+Ok here's my takeway from your response:
+(1) Layout the VDDH(5V) rail inline with the gf180mcu_fd_sc_mcu7t5v0 and _9t5v0 standard cells and VDD(3v3) rail in line with the OSU 9t/12 cells (if I can). That way the cell can butt to each domain, with some filler cells maybe.
+(2) Do PW/NW taps in the stdcell itself and bring out VDD/GND as pins.
+Hope this sounds reasonable. Thanks again.
+
+(In thread) Replied by Tim :   I'm not sure how much sense it makes in practice to try to make the level shifter match two different standard cell sets; that would work only for a single row of logic. I think it works better just to make the cell completely compatible with the GF standard cell libraries, and assume that the 3.3V supply can be routed in to a pin, maybe manually, and on a wire wider than a standard signal route wire. In practice, I'm usually only putting level shifters in front of analog circuits and there are only a handful of them and they don't really need to match anything.
+(In thread) Replied by sroutk :    Ok. Make sense. Thanks.
+ 
+(Jul 30,2025) Message by ahza bayanaka :  Hi  Tim  , Im Ahza from CHIPABROS (Digital Track). I have a question about schematic sizing. In our design (AOI33, OAI33, MUX4:1), should we size PMOS and NMOS based on the worst-case delay path to optimize performance? I noticed OSU standard cells don’t vary sizes per path all PMOS are twice the size of NMOS, and NMOS use W/L = 0.85u/0.3u and Is there a specific reason behind that number?    
+
+(In thread)  Replied by Tim :    I would assume that (A) 2x is "reasonable" even though balancing the P and N sides (i.e., mobility) requires a ratio of around 3x; the size is reduced as much as practical to keep the cell size down (note that the 0.85um/0.3um is very close to the correct ratio); (B) Keeping all the same size transistors makes it easier to have a consistent layout across all the cells. I didn't design the cells, so the best people to ask are James Stine, Landon Burleson, or Marcus Mellor.
+
+(Jul 30,2025) Message by  sroutk to ahza bayanaka message    :  Hi  Tim   : I've had the same doubt as well re. the sizing to keep delay constant but I just assumed that the sizes of (1.7u/0.3u and 0.85u/0.3u) were optimal for 9T layout.
+For 3-input gates, we (SILICON_BBI1/2) were planning to use the same sizes which will result in a larger delay but the synthesis/STA will choose the optimum path. Hope it's ok to go ahead with those sizing
+
+(In thread)  Replied by Tim :  Hopefully my response to the similar prior questions answers yours?
+
+(In thread)  Replied by sroutk :   Yes, thank you.
+
+(Aug 11,2025) Message by  sroutk :  d.m.bailey : Tim : infinitymdm Sincere apologies for the delay. Due to school reopenings and member travel, reviews for the past two weeks were missed. Additionally, three members from the SILICON_BBI2 team withdrew. It is proposed to consolidate the remaining seven members into the SILICON_BBI1 team to deliver seven standard cells. All cells have been designed, simulated, and documented in the design review report: https://docs.google.com/presentation/d/1-PwVBesOc41rMGyMZzqfWGzFfBSO2a17YhIK0xbBM-w/edit?usp=sharing 
+A 3-min presentation of the slides can be viewed here:
+https://zoom.us/rec/share/OGRjbX2RVj9ahWJ8wOJRqyFN8OOf2jaivV1r1lSaEVTwXiixKmu9a4pzv9AdLxja.zR8yUU5UsRYqivPe?startTime=1754899817000
+The project tracker for the project:
+https://docs.google.com/spreadsheets/d/1s4SPgW1sIKHpIMEBEdXSYUyiz4REzP_13UfACqfgxFU/edit?usp=sharing
+As noted in the presentation, I have the following questions and clarifications:
+The VDD/VSS were made pins but the current library has globals, is that ok ?
+As in the current library, we are not creating symbols, hope that’s ok.
+Is CACE the recommended method for PVT sims ? If yes, please recommend some good tutorials for it.
+What is the tool used to generate the LEF files ?
+What is the expected date for submitting the final library package ie. lib/lef/sch/etc
+And what are the files (lib/lef/sch/etc) expected to be submitted for the library.
+Currently we are not able to install CharLib on the docker and having issues with ngspice on a separate installation. Any help on that will be appreciated. (I'll add a detail issue soon)
+I have added all the above in our Issue#50
+https://github.com/sscs-ose/sscs-chipathon-2025/issues/50
+Chipathon2025-DesignReview-D14-SILICON_BBI
+Video Conferencing, Web Conferencing, Webinars, Screen Sharing
+ProjectTracker-D14-SILICON_BBI
+D15: SILICON_BBI1+2 - Standard cells · Issue #50 · sscs-ose/sscs-chipathon-2025
+
+(In thread)  Replied by infinitymdm : Re. using CharLib on the docker, you'll have to install ngspice-shared. See this issue for a method that another Chipathon participant used to get it working: https://github.com/stineje/CharLib/issues/71#issuecomment-3140300378
+
+(In thread)  Replied by sroutk : Thanks a lot  infinitymdm RafiIhsanAlfathin for the solution. Haven't tried the docker one yet but on a Ubuntu VM, I installed libngspice0-dev and used the option simulator: ngspice_subprocess and that seem to work. Thanks again
+
+(In thread)  Replied by infinitymdm : We've had a lot of issues with ngspice-subprocess recently, so I'm not too inclined to trust it. In the long term I'm probably going to change the way charlib interfaces with the spice simulator. Glad you got something working for you though.
+ (In thread)  Replied by sroutk : Yes, looks like I spoke little too soon. It seem to run all the sims but finally aborted with an prop_in_out error. When running in shared option, it just hangs with errors related to shared library because I don't think I compiled ngspice with shared option.
+Maybe I'll try the docker option ... Would have been nice if charlib was in the docker image
+
+(In thread)  Replied by   RafiIhsanAlfathin  :  sroutk  what kind of error when you omit  simulator: ngspice sub-processes  in the YAML files ? Can you show it?
+
+(In thread)  Replied by sroutk : Reading configuration found in "charlib-inv.yml" Checking configuration syntax Running input_capacitance for pin A of cell GF180MCU_OSU_SC_GP9T3V3__INV_1 Error: Library ../lib/ngspice/spice2poly.cm couldn't be loaded! Error: Library ../lib/ngspice/analog.cm couldn't be loaded! Error: Library ../lib/ngspice/digital.cm couldn't be loaded! Error: Library ../lib/ngspice/xtradev.cm couldn't be loaded! Error: Library ../lib/ngspice/xtraevt.cm couldn't be loaded! Error: Library ../lib/ngspice/table.cm couldn't be loaded! Running delay GF180MCU_OSU_SC_GP9T3V3__INV_1 A=01 Y=10 with slew=0.0706 ns, load=0.0013 pF
+
+This is not on docker. It's on a Ubuntu VM and I have a compiled ngspice installed locally. And I don't think I compiled as shared lib
+
+
+I can't quite tell what's going on here. You've got a bunch of error messages, but the last line seems to imply charlib is running correctly. Is that right? Do you get a usable liberty file?
+
+(In thread)  Replied by infinitymdm :  If you're on Ubuntu (or other debian-based distros) you can install the ngspice shared library using apt: apt-get install libngspice0-dev. Then you'll be able to use the default ngspice-shared backend. I can't recommend the -subprocess backend at this time.
+Also, make sure you're using the latest git release of charlib. It has a number of fixes that we've implemented over the last few weeks. You can install it with pip install git+https://github.com/stineje/charlib.
+
+
+(In thread)  Replied by sroutk : Unable to load event that was replied to, it either does not exist or you do not have permission to view it.
+infinitymdm : Just FYI, I have installed libngspice0-dev and the I installed charlib just yesterday using your instruction for a virtual python environment. I think charLib is running fine. The error you see is from ngspice. I think it's probably related to ngspice not compiled for "shared" mode.
+But now, when running in "ngspice-shared" (default) mode, it creates a .lib file even with those errors.
+In order to verify the validity of the output, I am planning to take an existing OSU cell and run charLIb and see if the liberty file matches the one we have in the library.
+There will be probably slight diffeence because I don't have the extracted output but atleast it will give me confidence that the output is not garbage.
+
+(In thread)  Replied by infinitymdm :  Great! Expect some slight variations anyways. Charlib uses a different model than the CCS files provided for GF180, but the numbers should be pretty close overall.
+(In thread)  Replied by sroutk :  infinitymdm Tim Quick update on charlib. The errors were related to XSPICE most probably because I did not enable the option during compile. So charlib is probably trying to findout if XSPICE is enabled and I am not sure if that's necessary.
+I took the netlist of current OSU inverter and ran charlib with the slew/load from the .lib file.
+As exepected the data was faster and the difference is in 2-30% range. Seems a little high but maybe reasonable considering it's not layout extracted and the model was different.
+As we have a week to deliver the cells, I will keep moving along and maybe come back and dig into the root cause of the difference. Let me know if that's sound reasonable.
+
+The YAML file and the netlist of the test run is in our git repo:
+
+https://github.com/silicon-vlsi/chipathon25-SILICON_BBI-sroutk/designs/libs/tb_digital/charlib/test
+
+Here's the .LIB snippet of the rise time data of the charlib output
+
+cell_rise (delay_template_6x6) { index_1 ("0.0778447, 0.205581, 0.542922, 1.43381, 3.78657, 10"); index_2 ("0.00103698, 0.00444906, 0.0190882, 0.0818956, 0.351363, 1.50748"); values ( \ "0.031557, 0.048181, 0.113736, 0.391607, 1.580149, 6.678112", \ "0.046799, 0.069981, 0.138650, 0.415092, 1.603317, 6.701217", \ "0.076354, 0.110201, 0.203120, 0.481412, 1.665888, 6.762588", \ "0.135231, 0.186595, 0.322211, 0.668250, 1.838569, 6.926960", \ "0.260774, 0.338920, 0.544917, 1.039995, 2.324778, 7.374540", \ "0.548375, 0.665380, 0.979361, 1.726610, 3.503279, 8.621107"); }
+
+This is the snippet from the current .LIB
+
+`
+Current library cell_rise (delay_template) {
+index_1 ("0.0778447, 0.205581, 0.542922, 1.43381, 3.78657, 10");
+index_2 ("0.00103698, 0.00444906, 0.0190882, 0.0818956, 0.351363, 1.50748");
+values (
+"0.0449752, 0.0633547, 0.127873, 0.404958, 1.59333, 6.69346",
+"0.0693374, 0.0947478, 0.171419, 0.445403, 1.63151, 6.7302",
+"0.116383, 0.153916, 0.262815, 0.560606, 1.73817, 6.82315",
+"0.210742, 0.268555, 0.429905, 0.841967, 2.03522, 7.10647",
+"0.41437, 0.502135, 0.749291, 1.35496, 2.86303, 7.87545",
+"0.886474, 1.01634, 1.39122, 2.31379, 4.47569, 10.0257"
+);
+
+(Aug 12,2025) Message by peterkinget  : Harald Pretl :  Hi Harald, for LVS on the standard cells  Tim made an update to the PDK models in GF180 so that we can get device models matching. To updated the PDK the following command was suggested: 
+ciel enable --pdk-family gf180mcu fe2b40c6d7f43ab31aeb4c50c280b3da925c9462
+Version fe2b40c6d7f43ab31aeb4c50c280b3da925c9462 not found locally, attempting to download…
+Downloading common.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+[Errno 13] Permission denied: '/foss/pdks/ciel/gf180mcu/versions/fe2b40c6d7f43ab31aeb4c50c280b3da925c9462'
+
+but in the docker we do not have root access ... How do we work around that?
+
+Is it possible to update the image?
+
+BTW, updating the PDK does solve the LVS issue, so it makes a difference. See the LVS discussion higher up.
+
+
+
+(In thread)  Replied by d.m.bailey : peterkinget A possible temporary solution:
+install the pdk locally by defining PDK_ROOT to somewhere you can write
+
+(Aug 14,2025) Message by peterkinget  :  Does anyone know if the GF180 5V digital standard cells include a Schmitt-Trigger cell?
+(In thread)  Replied by sroutk :  Prof.  peterkinget
